@@ -12,13 +12,6 @@
 
 uint8_t mac[6] = {0x1C, 0xA1, 0x35, 0x69, 0x8D, 0xC5};
 
-typedef enum
-{
-	ENG_RPM,
-	SPEED
-} obd_pid_states;
-obd_pid_states obd_state = ENG_RPM;
-
 button button1 = {19, false};
 
 int mode = 0;

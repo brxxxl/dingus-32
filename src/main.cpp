@@ -5,23 +5,30 @@
 #include "LiquidCrystal_I2C.h"
 #include <HardwareSerial.h>
 #include "facilities.h"
+#include "customCharacters.h"
 
-#ifdef DEBUG_SKIP_CONNECTION
-#undef DEBUG_SKIP_CONNECTION
+#ifndef DEBUG_SKIP_CONNECTION
+// #define DEBUG_SKIP_CONNECTION
 #endif // DEBUG_SKIP_CONNECTION
 
 uint8_t mac[6] = {0x1C, 0xA1, 0x35, 0x69, 0x8D, 0xC5};
 
 button button1 = {19, false};
 
-int mode = 0;
 int modeCount = 1; // Number of modes - 1
 float rpm = 0;
 float kph = 0;
 
 void IRAM_ATTR buttonPressed()
 {
-	button1.state = true;
+	if (button1.mode < modeCount)
+	{
+		button1.mode++;
+	}
+	else
+	{
+		button1.mode = 0;
+	}
 }
 
 void setButtonInterrupts()
@@ -38,50 +45,36 @@ void setup()
 	printNewToLine("Connecting to", 0, lcd, true);
 	printNewToLine("ELM327", 1, lcd, false);
 	blinkingDotsAnimation(6, 1, lcd);
+
 	attemptToConnect(mac); // Connect to the OBD scanner
+
 	setButtonInterrupts();
 
 	Serial.println("Connected to ELM327");
 	delay(1000);
+	Serial.println("Starting loop...");
+	Serial.println("\n");
+	Serial.println("\n");
+	Serial.println("\n");
 }
 
 void loop()
 {
-	if (button1.state == true)
-	{
-		if (mode < modeCount)
-		{
-			mode++;
-		}
-		else
-		{
-			mode = 0;
-		}
-		button1.state = false;
-	}
+	float tempRPM = myELM327.rpm();
 
-	switch (mode)
+	if (myELM327.nb_rx_state == ELM_SUCCESS)
 	{
-	case 0:
-	{
-#ifndef DEBUG_SKIP_CONNECTION
-		rpm = myELM327.rpm();
-#endif // DEBUG_SKIP_CONNECTION
+		rpm = (uint32_t)tempRPM;
+		Serial.print("RPM: ");
+		Serial.println(rpm);
 		printNewToLine("RPM: ", 0, lcd, true);
 		lcd.setCursor(5, 0);
-		lcd.print(rpm);
-		break;
+		lcd.print(tempRPM);
 	}
-	case 1:
+	else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
 	{
-#ifndef DEBUG_SKIP_CONNECTION
-		kph = myELM327.kph();
-#endif // DEBUG_SKIP_CONNECTION
-		printNewToLine("KPH: ", 0, lcd, true);
-		lcd.setCursor(5, 0);
-		lcd.print(kph);
-		break;
+		myELM327.printError();
+		while (1)
+			;
 	}
-	}
-	delay(300);
 }

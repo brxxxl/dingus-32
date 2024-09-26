@@ -4,6 +4,7 @@ struct button
 {
 	const uint8_t pin;
 	bool state;
+	int mode;
 };
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);

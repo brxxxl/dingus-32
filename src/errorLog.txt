@@ -1,0 +1,131 @@
+11:24:03.024 Attempting to connect to ELM327...
+11:24:05.651 Phase 1 - successful
+11:24:06.219 Clearing input serial buffer
+11:24:06.226 Sending the following command/query: AT D
+11:24:06.235 	Received char: A
+11:24:06.240 	Received char: T
+11:24:06.245 	Received char: _
+11:24:06.250 	Received char: D
+11:24:06.255 	Received char: \r
+11:24:06.260 	Received char: \r
+11:24:08.217 Timeout detected with overflow of 0ms
+11:24:08.318 Clearing input serial buffer
+11:24:08.324 Sending the following command/query: AT Z
+11:24:08.335 	Received char: A
+11:24:08.343 	Received char: T
+11:24:08.345 	Received char: _
+11:24:08.350 	Received char: Z
+11:24:08.355 	Received char: \r
+11:24:08.360 	Received char: \r
+11:24:08.366 	Received char: \r
+11:24:08.370 	Received char: E
+11:24:08.376 	Received char: L
+11:24:08.380 	Received char: M
+11:24:08.385 	Received char: 3
+11:24:08.390 	Received char: 2
+11:24:08.395 	Received char: 7
+11:24:08.400 	Received char: _
+11:24:08.405 	Received char: v
+11:24:08.410 	Received char: 2
+11:24:08.415 	Received char: .
+11:24:08.421 	Received char: 1
+11:24:08.425 	Received char: \r
+11:24:08.430 	Received char: \r
+11:24:08.435 	Received char: >
+11:24:08.440 Delimiter found.
+11:24:08.445 All chars received: ATZELM327v2.1
+11:24:08.550 Clearing input serial buffer
+11:24:08.557 Sending the following command/query: AT E0
+11:24:08.568 	Received char: A
+11:24:08.574 	Received char: T
+11:24:08.578 	Received char: _
+11:24:08.583 	Received char: E
+11:24:08.588 	Received char: 0
+11:24:08.593 	Received char: \r
+11:24:08.598 	Received char: O
+11:24:08.603 	Received char: K
+11:24:08.609 	Received char: \r
+11:24:08.613 	Received char: \r
+11:24:08.619 	Received char: >
+11:24:08.624 Delimiter found.
+11:24:08.628 All chars received: ATE0OK
+11:24:08.722 Clearing input serial buffer
+11:24:08.728 Sending the following command/query: AT S0
+11:24:08.755 	Received char: O
+11:24:08.760 	Received char: K
+11:24:08.764 	Received char: \r
+11:24:08.769 	Received char: \r
+11:24:08.774 	Received char: >
+11:24:08.779 Delimiter found.
+11:24:08.784 All chars received: OK
+11:24:08.859 Clearing input serial buffer
+11:24:08.866 Sending the following command/query: AT AL
+11:24:08.891 	Received char: O
+11:24:08.896 	Received char: K
+11:24:08.900 	Received char: \r
+11:24:08.906 	Received char: \r
+11:24:08.911 	Received char: >
+11:24:08.916 Delimiter found.
+11:24:08.920 All chars received: OK
+11:24:08.995 Clearing input serial buffer
+11:24:09.003 Sending the following command/query: AT ST 00
+11:24:09.028 	Received char: O
+11:24:09.034 	Received char: K
+11:24:09.037 	Received char: \r
+11:24:09.042 	Received char: \r
+11:24:09.047 	Received char: >
+11:24:09.052 Delimiter found.
+11:24:09.057 All chars received: OK
+11:24:09.131 Clearing input serial buffer
+11:24:09.138 Sending the following command/query: AT SP A0
+11:24:09.164 	Received char: O
+11:24:09.169 	Received char: K
+11:24:09.173 	Received char: \r
+11:24:09.178 	Received char: \r
+11:24:09.183 	Received char: >
+11:24:09.188 Delimiter found.
+11:24:09.193 All chars received: OK
+11:24:09.199 Clearing input serial buffer
+11:24:09.207 Sending the following command/query: 0100
+11:24:39.197 Timeout detected with overflow of 0ms
+11:24:39.205 Setting protocol via AT TP A%c did not work - trying via AT SP %c
+11:24:39.222 Clearing input serial buffer
+11:24:39.230 Sending the following command/query: AT SP 0
+11:24:39.261 	Received char: O
+11:24:39.265 	Received char: K
+11:24:39.270 	Received char: \r
+11:24:39.275 	Received char: \r
+11:24:39.280 	Received char: >
+11:24:39.285 Delimiter found.
+11:24:39.290 All chars received: OK
+11:24:39.296 Phase 2 - successful
+11:24:39.925 Connected to ELM327
+11:24:40.925 Starting loop...
+11:24:40.930 
+11:24:40.930 
+11:24:40.930 
+11:24:40.930 
+11:24:40.934 
+11:24:40.934 
+11:24:40.934 Service: 1
+11:24:40.938 PID: 12
+11:24:40.940 Normal length query detected
+11:24:40.946 Query string: 010C1
+11:24:40.949 Clearing input serial buffer
+11:24:40.957 Sending the following command/query: 010C1
+11:24:40.989 	Received char: S
+11:24:40.994 	Received char: E
+11:24:40.998 	Received char: A
+11:24:41.003 	Received char: R
+11:24:41.009 	Received char: C
+11:24:41.013 	Received char: H
+11:24:41.018 	Received char: I
+11:24:41.023 	Received char: N
+11:24:41.028 	Received char: G
+11:24:41.033 	Received char: .
+11:24:41.038 	Received char: .
+11:24:41.043 	Received char: .
+11:24:41.048 	Received char: \r
+11:24:42.955 Timeout detected with overflow of 0ms
+11:24:42.964 Received: SEARCHING...
+11:24:42.970 ERROR: ELM_TIMEOUT

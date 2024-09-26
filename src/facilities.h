@@ -1,4 +1,15 @@
-// #define DEBUG_SKIP_CONNECTION
+#include <BluetoothSerial.h>
+#include <BluetoothSerial.cpp>
+#include <TaskScheduler.h>
+#include <AsyncTCP.h>
+#include <ELMduino.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <HardwareSerial.h>
+
+#define DEBUG_SKIP_CONNECTION
+
+uint8_t mac[6] = {0x1C, 0xA1, 0x35, 0x69, 0x8D, 0xC5};
 
 struct button
 {
@@ -6,6 +17,8 @@ struct button
 	bool state;
 	int mode;
 };
+
+button button1 = {19, false};
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 BluetoothSerial SerialBT;
@@ -111,4 +124,5 @@ void startDevices()
 	lcd.init();
 	lcd.backlight();
 	lcd.clear();
+	lcd.setContrast(150);
 }

@@ -1,39 +1,39 @@
-#include "BluetoothSerial.h"
-#include "BluetoothSerial.cpp"
-#include "ELMduino.h"
-#include "Wire.h"
-#include "LiquidCrystal_I2C.h"
-#include <HardwareSerial.h>
-#include "facilities.h"
-#include "customCharacters.h"
+#include <customCharacters.h>
+#include <tasks.h>
 
 #ifndef DEBUG_SKIP_CONNECTION
-// #define DEBUG_SKIP_CONNECTION
+#define DEBUG_SKIP_CONNECTION
 #endif // DEBUG_SKIP_CONNECTION
-
-uint8_t mac[6] = {0x1C, 0xA1, 0x35, 0x69, 0x8D, 0xC5};
-
-button button1 = {19, false};
 
 int modeCount = 1; // Number of modes - 1
 float rpm = 0;
 float kph = 0;
 
+// variables to keep track of the timing of recent interrupts
+unsigned long button_time = 0;
+unsigned long last_button_time = 0;
+
 void IRAM_ATTR buttonPressed()
 {
-	if (button1.mode < modeCount)
+	button_time = millis();
+	if (button_time - last_button_time > 200)
 	{
-		button1.mode++;
-	}
-	else
-	{
-		button1.mode = 0;
+		dataToDisplay.forceNextIteration();
+		if (button1.mode < modeCount)
+		{
+			button1.mode++;
+		}
+		else
+		{
+			button1.mode = 0;
+		}
+		last_button_time = button_time;
 	}
 }
 
 void setButtonInterrupts()
 {
-	pinMode(button1.pin, INPUT_PULLDOWN);
+	pinMode(button1.pin, INPUT_PULLUP);
 	attachInterrupt(button1.pin, buttonPressed, FALLING);
 }
 
@@ -56,10 +56,17 @@ void setup()
 	Serial.println("\n");
 	Serial.println("\n");
 	Serial.println("\n");
+
+	pinMode(15, OUTPUT); // LED for debugging
+
+	mainDisplayRoutine.init();
+	mainDisplayRoutine.addTask(dataToDisplay);
+	dataToDisplay.enable();
 }
 
 void loop()
 {
+	mainDisplayRoutine.execute();
 	float tempRPM = myELM327.rpm();
 
 	if (myELM327.nb_rx_state == ELM_SUCCESS)
@@ -67,14 +74,9 @@ void loop()
 		rpm = (uint32_t)tempRPM;
 		Serial.print("RPM: ");
 		Serial.println(rpm);
-		printNewToLine("RPM: ", 0, lcd, true);
-		lcd.setCursor(5, 0);
-		lcd.print(tempRPM);
 	}
 	else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
 	{
 		myELM327.printError();
-		while (1)
-			;
 	}
 }

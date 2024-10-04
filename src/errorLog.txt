@@ -1,131 +1,416 @@
-11:24:03.024 Attempting to connect to ELM327...
-11:24:05.651 Phase 1 - successful
-11:24:06.219 Clearing input serial buffer
-11:24:06.226 Sending the following command/query: AT D
-11:24:06.235 	Received char: A
-11:24:06.240 	Received char: T
-11:24:06.245 	Received char: _
-11:24:06.250 	Received char: D
-11:24:06.255 	Received char: \r
-11:24:06.260 	Received char: \r
-11:24:08.217 Timeout detected with overflow of 0ms
-11:24:08.318 Clearing input serial buffer
-11:24:08.324 Sending the following command/query: AT Z
-11:24:08.335 	Received char: A
-11:24:08.343 	Received char: T
-11:24:08.345 	Received char: _
-11:24:08.350 	Received char: Z
-11:24:08.355 	Received char: \r
-11:24:08.360 	Received char: \r
-11:24:08.366 	Received char: \r
-11:24:08.370 	Received char: E
-11:24:08.376 	Received char: L
-11:24:08.380 	Received char: M
-11:24:08.385 	Received char: 3
-11:24:08.390 	Received char: 2
-11:24:08.395 	Received char: 7
-11:24:08.400 	Received char: _
-11:24:08.405 	Received char: v
-11:24:08.410 	Received char: 2
-11:24:08.415 	Received char: .
-11:24:08.421 	Received char: 1
-11:24:08.425 	Received char: \r
-11:24:08.430 	Received char: \r
-11:24:08.435 	Received char: >
-11:24:08.440 Delimiter found.
-11:24:08.445 All chars received: ATZELM327v2.1
-11:24:08.550 Clearing input serial buffer
-11:24:08.557 Sending the following command/query: AT E0
-11:24:08.568 	Received char: A
-11:24:08.574 	Received char: T
-11:24:08.578 	Received char: _
-11:24:08.583 	Received char: E
-11:24:08.588 	Received char: 0
-11:24:08.593 	Received char: \r
-11:24:08.598 	Received char: O
-11:24:08.603 	Received char: K
-11:24:08.609 	Received char: \r
-11:24:08.613 	Received char: \r
-11:24:08.619 	Received char: >
-11:24:08.624 Delimiter found.
-11:24:08.628 All chars received: ATE0OK
-11:24:08.722 Clearing input serial buffer
-11:24:08.728 Sending the following command/query: AT S0
-11:24:08.755 	Received char: O
-11:24:08.760 	Received char: K
-11:24:08.764 	Received char: \r
-11:24:08.769 	Received char: \r
-11:24:08.774 	Received char: >
-11:24:08.779 Delimiter found.
-11:24:08.784 All chars received: OK
-11:24:08.859 Clearing input serial buffer
-11:24:08.866 Sending the following command/query: AT AL
-11:24:08.891 	Received char: O
-11:24:08.896 	Received char: K
-11:24:08.900 	Received char: \r
-11:24:08.906 	Received char: \r
-11:24:08.911 	Received char: >
-11:24:08.916 Delimiter found.
-11:24:08.920 All chars received: OK
-11:24:08.995 Clearing input serial buffer
-11:24:09.003 Sending the following command/query: AT ST 00
-11:24:09.028 	Received char: O
-11:24:09.034 	Received char: K
-11:24:09.037 	Received char: \r
-11:24:09.042 	Received char: \r
-11:24:09.047 	Received char: >
-11:24:09.052 Delimiter found.
-11:24:09.057 All chars received: OK
-11:24:09.131 Clearing input serial buffer
-11:24:09.138 Sending the following command/query: AT SP A0
-11:24:09.164 	Received char: O
-11:24:09.169 	Received char: K
-11:24:09.173 	Received char: \r
-11:24:09.178 	Received char: \r
-11:24:09.183 	Received char: >
-11:24:09.188 Delimiter found.
-11:24:09.193 All chars received: OK
-11:24:09.199 Clearing input serial buffer
-11:24:09.207 Sending the following command/query: 0100
-11:24:39.197 Timeout detected with overflow of 0ms
-11:24:39.205 Setting protocol via AT TP A%c did not work - trying via AT SP %c
-11:24:39.222 Clearing input serial buffer
-11:24:39.230 Sending the following command/query: AT SP 0
-11:24:39.261 	Received char: O
-11:24:39.265 	Received char: K
-11:24:39.270 	Received char: \r
-11:24:39.275 	Received char: \r
-11:24:39.280 	Received char: >
-11:24:39.285 Delimiter found.
-11:24:39.290 All chars received: OK
-11:24:39.296 Phase 2 - successful
-11:24:39.925 Connected to ELM327
-11:24:40.925 Starting loop...
-11:24:40.930 
-11:24:40.930 
-11:24:40.930 
-11:24:40.930 
-11:24:40.934 
-11:24:40.934 
-11:24:40.934 Service: 1
-11:24:40.938 PID: 12
-11:24:40.940 Normal length query detected
-11:24:40.946 Query string: 010C1
-11:24:40.949 Clearing input serial buffer
-11:24:40.957 Sending the following command/query: 010C1
-11:24:40.989 	Received char: S
-11:24:40.994 	Received char: E
-11:24:40.998 	Received char: A
-11:24:41.003 	Received char: R
-11:24:41.009 	Received char: C
-11:24:41.013 	Received char: H
-11:24:41.018 	Received char: I
-11:24:41.023 	Received char: N
-11:24:41.028 	Received char: G
-11:24:41.033 	Received char: .
-11:24:41.038 	Received char: .
-11:24:41.043 	Received char: .
-11:24:41.048 	Received char: \r
-11:24:42.955 Timeout detected with overflow of 0ms
-11:24:42.964 Received: SEARCHING...
-11:24:42.970 ERROR: ELM_TIMEOUT
+16:55:08.958  E  D D   !"j ґ"NE" Zj Z ґ"sZ *}PQ  K*T KIx ED֩* ) "  " )R$  Device started
+16:55:11.057 Attempting to connect to ELM327...
+16:55:13.361 Phase 1 - successful
+16:55:13.930 Clearing input serial buffer
+16:55:13.936 Sending the following command/query: AT D
+16:55:13.946 	Received char: A
+16:55:13.951 	Received char: T
+16:55:13.956 	Received char: _
+16:55:13.961 	Received char: D
+16:55:13.966 	Received char: \r
+16:55:13.971 	Received char: O
+16:55:13.976 	Received char: K
+16:55:13.981 	Received char: \r
+16:55:13.986 	Received char: \r
+16:55:13.991 	Received char: >
+16:55:13.996 Delimiter found.
+16:55:14.001 All chars received: ATDOK
+16:55:14.101 Clearing input serial buffer
+16:55:14.109 Sending the following command/query: AT Z
+16:55:14.118 	Received char: A
+16:55:14.124 	Received char: T
+16:55:14.129 	Received char: _
+16:55:14.133 	Received char: Z
+16:55:14.138 	Received char: \r
+16:55:14.143 	Received char: \r
+16:55:14.148 	Received char: \r
+16:55:14.153 	Received char: E
+16:55:14.158 	Received char: L
+16:55:14.163 	Received char: M
+16:55:14.168 	Received char: 3
+16:55:14.173 	Received char: 2
+16:55:14.178 	Received char: 7
+16:55:14.183 	Received char: _
+16:55:14.188 	Received char: v
+16:55:14.193 	Received char: 2
+16:55:14.198 	Received char: .
+16:55:14.203 	Received char: 1
+16:55:14.208 	Received char: \r
+16:55:14.213 	Received char: \r
+16:55:14.218 	Received char: >
+16:55:14.223 Delimiter found.
+16:55:14.228 All chars received: ATZELM327v2.1
+16:55:14.334 Clearing input serial buffer
+16:55:14.340 Sending the following command/query: AT E0
+16:55:14.351 	Received char: A
+16:55:14.357 	Received char: T
+16:55:14.361 	Received char: _
+16:55:14.366 	Received char: E
+16:55:14.372 	Received char: 0
+16:55:14.376 	Received char: \r
+16:55:14.381 	Received char: O
+16:55:14.387 	Received char: K
+16:55:14.391 	Received char: \r
+16:55:14.396 	Received char: \r
+16:55:14.402 	Received char: >
+16:55:14.406 Delimiter found.
+16:55:14.411 All chars received: ATE0OK
+16:55:14.504 Clearing input serial buffer
+16:55:14.513 Sending the following command/query: AT S0
+16:55:14.524 	Received char: O
+16:55:14.528 	Received char: K
+16:55:14.533 	Received char: \r
+16:55:14.538 	Received char: \r
+16:55:14.543 	Received char: >
+16:55:14.548 Delimiter found.
+16:55:14.553 All chars received: OK
+16:55:14.656 Clearing input serial buffer
+16:55:14.663 Sending the following command/query: AT AL
+16:55:14.692 	Received char: O
+16:55:14.698 	Received char: K
+16:55:14.701 	Received char: \r
+16:55:14.707 	Received char: \r
+16:55:14.712 	Received char: >
+16:55:14.718 Delimiter found.
+16:55:14.722 All chars received: OK
+16:55:14.796 Clearing input serial buffer
+16:55:14.803 Sending the following command/query: AT ST 00
+16:55:14.828 	Received char: O
+16:55:14.833 	Received char: K
+16:55:14.838 	Received char: \r
+16:55:14.843 	Received char: \r
+16:55:14.848 	Received char: >
+16:55:14.853 Delimiter found.
+16:55:14.858 All chars received: OK
+16:55:14.933 Clearing input serial buffer
+16:55:14.940 Sending the following command/query: AT TP A
+16:55:14.966 	Received char: O
+16:55:14.971 	Received char: K
+16:55:14.975 	Received char: \r
+16:55:14.980 	Received char: \r
+16:55:14.980 	Received char: >
+16:55:14.991 Delimiter found.
+16:55:14.995 All chars received: OK
+16:55:15.001 Phase 2 - successful
+16:55:15.631 Connected to ELM327
+16:55:16.634 Starting loop...
+16:55:16.638 
+16:55:16.638 
+16:55:16.638 
+16:55:16.641 
+16:55:16.641 
+16:55:16.641 
+16:55:16.671 Service: 1
+16:55:16.674 PID: 12
+16:55:16.676 Normal length query detected
+16:55:16.684 Query string: 010C1
+16:55:16.690 Clearing input serial buffer
+16:55:16.697 Sending the following command/query: 010C1
+16:55:18.705 Timeout detected with overflow of 0ms
+16:55:18.713 Received: 
+16:55:18.715 ERROR: ELM_TIMEOUT
+16:55:18.803 Service: 1
+16:55:18.807 PID: 12
+16:55:18.808 Normal length query detected
+16:55:18.815 Query string: 010C1
+16:55:18.821 Clearing input serial buffer
+16:55:18.828 Sending the following command/query: 010C1
+16:55:18.845 	Received char: ?
+16:55:18.849 	Received char: \r
+16:55:18.901 	Received char: \r
+16:55:18.907 	Received char: >
+16:55:18.910 Delimiter found.
+16:55:18.915 All chars received: 
+16:55:18.921 Expected response header: 410C
+16:55:18.929 Response not detected
+16:55:18.935 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:18.966 RPM: 0.00
+16:55:18.969 Service: 1
+16:55:18.972 PID: 12
+16:55:18.974 Normal length query detected
+16:55:18.982 Query string: 010C1
+16:55:18.987 Clearing input serial buffer
+16:55:18.995 Sending the following command/query: 010C1
+16:55:19.007 	Received char: ?
+16:55:19.012 	Received char: \r
+16:55:19.031 	Received char: \r
+16:55:19.035 	Received char: >
+16:55:19.040 Delimiter found.
+16:55:19.046 All chars received: 
+16:55:19.051 Expected response header: 410C
+16:55:19.059 Response not detected
+16:55:19.066 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:19.096 RPM: 0.00
+16:55:19.099 Service: 1
+16:55:19.102 PID: 12
+16:55:19.104 Normal length query detected
+16:55:19.113 Query string: 010C1
+16:55:19.118 Clearing input serial buffer
+16:55:19.125 Sending the following command/query: 010C1
+16:55:19.171 	Received char: ?
+16:55:19.178 	Received char: \r
+16:55:19.191 	Received char: \r
+16:55:19.195 	Received char: >
+16:55:19.200 Delimiter found.
+16:55:19.205 All chars received: 
+16:55:19.211 Expected response header: 410C
+16:55:19.219 Response not detected
+16:55:19.225 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:19.256 RPM: 0.00
+16:55:19.259 Service: 1
+16:55:19.262 PID: 12
+16:55:19.264 Normal length query detected
+16:55:19.272 Query string: 010C1
+16:55:19.277 Clearing input serial buffer
+16:55:19.285 Sending the following command/query: 010C1
+16:55:21.284 Timeout detected with overflow of 0ms
+16:55:21.292 Received: 
+16:55:21.296 ERROR: ELM_TIMEOUT
+16:55:21.384 Service: 1
+16:55:21.388 PID: 12
+16:55:21.390 Normal length query detected
+16:55:21.396 Query string: 010C1
+16:55:21.402 Clearing input serial buffer
+16:55:21.409 Sending the following command/query: 010C1
+16:55:21.449 	Received char: ?
+16:55:21.454 	Received char: \r
+16:55:21.459 	Received char: \r
+16:55:21.464 	Received char: >
+16:55:21.469 Delimiter found.
+16:55:21.474 All chars received: 
+16:55:21.480 Expected response header: 410C
+16:55:21.488 Response not detected
+16:55:21.494 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:21.525 RPM: 0.00
+16:55:21.528 Service: 1
+16:55:21.531 PID: 12
+16:55:21.533 Normal length query detected
+16:55:21.541 Query string: 010C1
+16:55:21.547 Clearing input serial buffer
+16:55:21.554 Sending the following command/query: 010C1
+16:55:21.566 	Received char: ?
+16:55:21.571 	Received char: \r
+16:55:21.583 	Received char: \r
+16:55:21.588 	Received char: >
+16:55:21.593 Delimiter found.
+16:55:21.598 All chars received: 
+16:55:21.603 Expected response header: 410C
+16:55:21.612 Response not detected
+16:55:21.618 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:21.648 RPM: 0.00
+16:55:21.684 Service: 1
+16:55:21.687 PID: 12
+16:55:21.689 Normal length query detected
+16:55:21.697 Query string: 010C1
+16:55:21.702 Clearing input serial buffer
+16:55:21.710 Sending the following command/query: 010C1
+16:55:23.716 Timeout detected with overflow of 0ms
+16:55:23.725 Received: 
+16:55:23.729 ERROR: ELM_TIMEOUT
+16:55:23.816 Service: 1
+16:55:23.820 PID: 12
+16:55:23.821 Normal length query detected
+16:55:23.828 Query string: 010C1
+16:55:23.834 Clearing input serial buffer
+16:55:23.841 Sending the following command/query: 010C1
+16:55:25.848 Timeout detected with overflow of 0ms
+16:55:25.857 Received: 
+16:55:25.858 ERROR: ELM_TIMEOUT
+16:55:25.947 Service: 1
+16:55:25.951 PID: 12
+16:55:25.952 Normal length query detected
+16:55:25.959 Query string: 010C1
+16:55:25.965 Clearing input serial buffer
+16:55:25.972 Sending the following command/query: 010C1
+16:55:27.976 Timeout detected with overflow of 0ms
+16:55:27.986 Received: 
+16:55:27.989 ERROR: ELM_TIMEOUT
+16:55:28.078 Service: 1
+16:55:28.082 PID: 12
+16:55:28.084 Normal length query detected
+16:55:28.090 Query string: 010C1
+16:55:28.095 Clearing input serial buffer
+16:55:28.103 Sending the following command/query: 010C1
+16:55:30.109 Timeout detected with overflow of 0ms
+16:55:30.117 Received: 
+16:55:30.120 ERROR: ELM_TIMEOUT
+16:55:30.248 Service: 1
+16:55:30.251 PID: 12
+16:55:30.252 Normal length query detected
+16:55:30.260 Query string: 010C1
+16:55:30.266 Clearing input serial buffer
+16:55:30.274 Sending the following command/query: 010C1
+16:55:32.279 Timeout detected with overflow of 0ms
+16:55:32.287 Received: 
+16:55:32.290 ERROR: ELM_TIMEOUT
+16:55:32.379 Service: 1
+16:55:32.381 PID: 12
+16:55:32.383 Normal length query detected
+16:55:32.391 Query string: 010C1
+16:55:32.396 Clearing input serial buffer
+16:55:32.404 Sending the following command/query: 010C1
+16:55:34.410 Timeout detected with overflow of 0ms
+16:55:34.418 Received: 
+16:55:34.421 ERROR: ELM_TIMEOUT
+16:55:34.509 Service: 1
+16:55:34.512 PID: 12
+16:55:34.514 Normal length query detected
+16:55:34.522 Query string: 010C1
+16:55:34.527 Clearing input serial buffer
+16:55:34.535 Sending the following command/query: 010C1
+16:55:34.549 	Received char: ?
+16:55:34.554 	Received char: \r
+16:55:34.577 	Received char: \r
+16:55:34.581 	Received char: >
+16:55:34.586 Delimiter found.
+16:55:34.591 All chars received: 
+16:55:34.597 Expected response header: 410C
+16:55:34.605 Response not detected
+16:55:34.611 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:34.642 RPM: 0.00
+16:55:34.677 Service: 1
+16:55:34.680 PID: 12
+16:55:34.683 Normal length query detected
+16:55:34.691 Query string: 010C1
+16:55:34.696 Clearing input serial buffer
+16:55:34.704 Sending the following command/query: 010C1
+16:55:36.710 Timeout detected with overflow of 0ms
+16:55:36.718 Received: 
+16:55:36.721 ERROR: ELM_TIMEOUT
+16:55:36.809 Service: 1
+16:55:36.812 PID: 12
+16:55:36.814 Normal length query detected
+16:55:36.822 Query string: 010C1
+16:55:36.827 Clearing input serial buffer
+16:55:36.835 Sending the following command/query: 010C1
+16:55:38.842 Timeout detected with overflow of 0ms
+16:55:38.852 Received: 
+16:55:38.854 ERROR: ELM_TIMEOUT
+16:55:38.941 Service: 1
+16:55:38.944 PID: 12
+16:55:38.946 Normal length query detected
+16:55:38.953 Query string: 010C1
+16:55:38.958 Clearing input serial buffer
+16:55:38.966 Sending the following command/query: 010C1
+16:55:40.973 Timeout detected with overflow of 0ms
+16:55:40.981 Received: 
+16:55:40.983 ERROR: ELM_TIMEOUT
+16:55:41.072 Service: 1
+16:55:41.077 PID: 12
+16:55:41.078 Normal length query detected
+16:55:41.084 Query string: 010C1
+16:55:41.089 Clearing input serial buffer
+16:55:41.097 Sending the following command/query: 010C1
+16:55:43.102 Timeout detected with overflow of 0ms
+16:55:43.111 Received: 
+16:55:43.114 ERROR: ELM_TIMEOUT
+16:55:43.244 Service: 1
+16:55:43.248 PID: 12
+16:55:43.249 Normal length query detected
+16:55:43.254 Query string: 010C1
+16:55:43.259 Clearing input serial buffer
+16:55:43.267 Sending the following command/query: 010C1
+16:55:45.272 Timeout detected with overflow of 0ms
+16:55:45.282 Received: 
+16:55:45.285 ERROR: ELM_TIMEOUT
+16:55:45.373 Service: 1
+16:55:45.377 PID: 12
+16:55:45.379 Normal length query detected
+16:55:45.385 Query string: 010C1
+16:55:45.390 Clearing input serial buffer
+16:55:45.398 Sending the following command/query: 010C1
+16:55:47.403 Timeout detected with overflow of 0ms
+16:55:47.412 Received: 
+16:55:47.415 ERROR: ELM_TIMEOUT
+16:55:47.504 Service: 1
+16:55:47.507 PID: 12
+16:55:47.509 Normal length query detected
+16:55:47.516 Query string: 010C1
+16:55:47.521 Clearing input serial buffer
+16:55:47.529 Sending the following command/query: 010C1
+16:55:47.543 	Received char: ?
+16:55:47.549 	Received char: \r
+16:55:47.571 	Received char: \r
+16:55:47.576 	Received char: >
+16:55:47.581 Delimiter found.
+16:55:47.587 All chars received: 
+16:55:47.591 Expected response header: 410C
+16:55:47.600 Response not detected
+16:55:47.606 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:47.636 RPM: 0.00
+16:55:47.673 Service: 1
+16:55:47.676 PID: 12
+16:55:47.679 Normal length query detected
+16:55:47.685 Query string: 010C1
+16:55:47.691 Clearing input serial buffer
+16:55:47.699 Sending the following command/query: 010C1
+16:55:49.706 Timeout detected with overflow of 0ms
+16:55:49.714 Received: 
+16:55:49.716 ERROR: ELM_TIMEOUT
+16:55:49.805 Service: 1
+16:55:49.809 PID: 12
+16:55:49.810 Normal length query detected
+16:55:49.817 Query string: 010C1
+16:55:49.822 Clearing input serial buffer
+16:55:49.830 Sending the following command/query: 010C1
+16:55:51.835 Timeout detected with overflow of 0ms
+16:55:51.844 Received: 
+16:55:51.847 ERROR: ELM_TIMEOUT
+16:55:51.935 Service: 1
+16:55:51.938 PID: 12
+16:55:51.941 Normal length query detected
+16:55:51.948 Query string: 010C1
+16:55:51.953 Clearing input serial buffer
+16:55:51.961 Sending the following command/query: 010C1
+16:55:51.976 	Received char: ?
+16:55:51.980 	Received char: \r
+16:55:52.042 	Received char: \r
+16:55:52.047 	Received char: >
+16:55:52.051 Delimiter found.
+16:55:52.055 All chars received: 
+16:55:52.061 Expected response header: 410C
+16:55:52.070 Response not detected
+16:55:52.076 WARNING: Number of payload chars is less than the number of expected response chars returned by ELM327 - returning 0
+16:55:52.106 RPM: 0.00
+16:55:52.109 Service: 1
+16:55:52.112 PID: 12
+16:55:52.115 Normal length query detected
+16:55:52.122 Query string: 010C1
+16:55:52.128 Clearing input serial buffer
+16:55:52.136 Sending the following command/query: 010C1
+16:55:54.170 Timeout detected with overflow of 36ms
+16:55:54.179 Received: 
+16:55:54.182 ERROR: ELM_TIMEOUT
+16:55:54.271 Service: 1
+16:55:54.274 PID: 12
+16:55:54.277 Normal length query detected
+16:55:54.282 Query string: 010C1
+16:55:54.288 Clearing input serial buffer
+16:55:54.296 Sending the following command/query: 010C1
+16:55:56.303 Timeout detected with overflow of 0ms
+16:55:56.311 Received: 
+16:55:56.313 ERROR: ELM_TIMEOUT
+16:55:56.401 Service: 1
+16:55:56.405 PID: 12
+16:55:56.406 Normal length query detected
+16:55:56.413 Query string: 010C1
+16:55:56.419 Clearing input serial buffer
+16:55:56.427 Sending the following command/query: 010C1
+16:55:58.432 Timeout detected with overflow of 0ms
+16:55:58.441 Received: 
+16:55:58.444 ERROR: ELM_TIMEOUT
+16:55:58.532 Service: 1
+16:55:58.535 PID: 12
+16:55:58.537 Normal length query detected
+16:55:58.544 Query string: 010C1
+16:55:58.550 Clearing input serial buffer
+16:55:58.558 Sending the following command/query: 010C1
+16:56:00.562 Timeout detected with overflow of 0ms
+16:56:00.572 Received: 
+16:56:00.575 ERROR: ELM_TIMEOUT
+16:56:00.703 Service: 1
+16:56:00.705 PID: 12
+16:56:00.708 Normal length query detected
+16:56:00.715 Query string: 010C1
+16:56:00.720 Clearing input serial buffer
+16:56:00.728 Sending the following command/query: 010C1

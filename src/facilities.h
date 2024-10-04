@@ -7,7 +7,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <HardwareSerial.h>
 
-#define DEBUG_SKIP_CONNECTION
+// #define DEBUG_SKIP_CONNECTION
 
 uint8_t mac[6] = {0x1C, 0xA1, 0x35, 0x69, 0x8D, 0xC5};
 
@@ -94,7 +94,7 @@ void attemptToConnect(uint8_t mac[6])
 		delay(500);
 	}
 
-	if (!myELM327.begin(ELM_PORT, true, 2000))
+	if (!myELM327.begin(ELM_PORT, true, 2000, 5))
 	{
 		Serial.println("Couldn't connect to OBD scanner - Phase 2");
 		printNewToLCD("Phase 2 - Failed", lcd);

@@ -2,12 +2,10 @@
 #include <tasks.h>
 
 #ifndef DEBUG_SKIP_CONNECTION
-#define DEBUG_SKIP_CONNECTION
+// #define DEBUG_SKIP_CONNECTION
 #endif // DEBUG_SKIP_CONNECTION
 
 int modeCount = 1; // Number of modes - 1
-float rpm = 0;
-float kph = 0;
 
 // variables to keep track of the timing of recent interrupts
 unsigned long button_time = 0;
@@ -67,6 +65,7 @@ void setup()
 void loop()
 {
 	mainDisplayRoutine.execute();
+
 	float tempRPM = myELM327.rpm();
 
 	if (myELM327.nb_rx_state == ELM_SUCCESS)

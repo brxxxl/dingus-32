@@ -3,6 +3,9 @@
 Scheduler mainDisplayRoutine;
 bool ledState = LOW;
 
+float rpm = 0;
+float kph = 0;
+
 void dataToDisplayCallbackFunction(button button1); // Forward declaration
 void dataToDisplayCallback();						// Forward declaration
 
@@ -16,12 +19,14 @@ void dataToDisplayCallbackFunction(button button1)
 	case 0:
 		lcd.clear();
 		lcd.setCursor(0, 0);
-		lcd.print("RPM: 0");
+		lcd.print("RPM:            ");
+		lcd.setCursor(5, 0);
+		lcd.print(rpm);
 		break;
 	case 1:
 		lcd.clear();
 		lcd.setCursor(0, 0);
-		lcd.print("Km/h: 1");
+		lcd.print("Km/h:           ");
 		break;
 	}
 }

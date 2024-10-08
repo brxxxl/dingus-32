@@ -65,17 +65,23 @@ void setup()
 void loop()
 {
 	mainDisplayRoutine.execute();
+	reconnectToElmRoutine.execute();
 
 	float tempRPM = myELM327.rpm();
 
 	if (myELM327.nb_rx_state == ELM_SUCCESS)
 	{
 		rpm = (uint32_t)tempRPM;
-		Serial.print("RPM: ");
-		Serial.println(rpm);
+		Serial.println("Success. RPM: " + String(rpm));
 	}
 	else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
 	{
 		myELM327.printError();
+		if (!myELM327.connected)
+		{
+			Serial.println("Disconnected from ELM327");
+			Serial.println("Attempting to reconnect...");
+			myELM327.begin(ELM_PORT, true, 2000, (char)CHAR_PROTOCOL);
+		}
 	}
 }

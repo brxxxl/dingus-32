@@ -6,6 +6,12 @@
 #endif // DEBUG_SKIP_CONNECTION
 
 int modeCount = 1; // Number of modes - 1
+volatile float tempRPM = 0;
+volatile float tempKPH = 0;
+volatile float tempOilTemp = 0;
+volatile float tempFuelRate = 0;
+int obd_state_mode = 0;
+int obd_state_max = 3; // Number of states - 1
 
 // variables to keep track of the timing of recent interrupts
 unsigned long button_time = 0;
@@ -40,48 +46,95 @@ void setup()
 	startDevices();
 	DEBUG_PORT.println("Device started");
 	DEBUG_PORT.println("Attempting to connect to ELM327...");
-	printNewToLine("Connecting to", 0, lcd, true);
-	printNewToLine("ELM327", 1, lcd, false);
+	printNewToLine("Connecting to   ", 0, lcd, true);
+	printNewToLine("ELM327          ", 1, lcd, false);
 	blinkingDotsAnimation(6, 1, lcd);
 
 	attemptToConnect(mac); // Connect to the OBD scanner
 
 	setButtonInterrupts();
 
-	Serial.println("Connected to ELM327");
-	delay(1000);
-	Serial.println("Starting loop...");
-	Serial.println("\n");
-	Serial.println("\n");
-	Serial.println("\n");
-
-	pinMode(15, OUTPUT); // LED for debugging
-
 	mainDisplayRoutine.init();
 	mainDisplayRoutine.addTask(dataToDisplay);
 	dataToDisplay.enable();
+	lcd.setCursor(0, 0);
+	lcd.print(CLEAR_STRING);
+	lcd.setCursor(0, 1);
+	lcd.print(CLEAR_STRING);
 }
 
 void loop()
 {
 	mainDisplayRoutine.execute();
-	reconnectToElmRoutine.execute();
 
-	float tempRPM = myELM327.rpm();
+	int skipMode = button1.mode;
 
-	if (myELM327.nb_rx_state == ELM_SUCCESS)
+	switch (obd_state_mode)
 	{
-		rpm = (uint32_t)tempRPM;
-		Serial.println("Success. RPM: " + String(rpm));
-	}
-	else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
-	{
-		myELM327.printError();
-		if (!myELM327.connected)
+	case 0:
+		if (skipMode != 0)
 		{
-			Serial.println("Disconnected from ELM327");
-			Serial.println("Attempting to reconnect...");
-			myELM327.begin(ELM_PORT, true, 2000, (char)CHAR_PROTOCOL);
+			break;
 		}
+		tempKPH = myELM327.kph();
+		if (myELM327.nb_rx_state == ELM_SUCCESS)
+		{
+			kph = (uint32_t)tempKPH;
+		}
+		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+		{
+			myELM327.printError();
+		}
+		break;
+	case 1:
+		if (skipMode != 0)
+		{
+			break;
+		}
+		tempRPM = myELM327.rpm();
+		if (myELM327.nb_rx_state == ELM_SUCCESS)
+		{
+			rpm = (uint32_t)tempRPM;
+		}
+		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+		{
+			myELM327.printError();
+		}
+		break;
+	case 2:
+		if (skipMode != 1)
+		{
+			break;
+		}
+		tempOilTemp = myELM327.oilTemp();
+		if (myELM327.nb_rx_state == ELM_SUCCESS)
+		{
+			oilTemp = (uint32_t)tempOilTemp;
+		}
+		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+		{
+			myELM327.printError();
+		}
+		break;
+	case 3:
+		if (skipMode != 1)
+		{
+			break;
+		}
+		tempFuelRate = myELM327.fuelRate();
+		if (myELM327.nb_rx_state == ELM_SUCCESS)
+		{
+			fuelRate = (uint32_t)tempFuelRate;
+		}
+		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+		{
+			myELM327.printError();
+		}
+		break;
+	}
+	obd_state_mode++;
+	if (obd_state_mode > obd_state_max)
+	{
+		obd_state_mode = 0;
 	}
 }

@@ -6,12 +6,10 @@
 #endif // DEBUG_SKIP_CONNECTION
 
 int modeCount = 1; // Number of modes - 1
-volatile float tempRPM = 0;
-volatile float tempKPH = 0;
-volatile float tempOilTemp = 0;
-volatile float tempFuelRate = 0;
-int obd_state_mode = 0;
-int obd_state_max = 3; // Number of states - 1
+volatile int tempRPM = 0;
+volatile int tempKPH = 0;
+volatile float tempTorque = 0;
+volatile float tempThrottle = 0;
 
 // variables to keep track of the timing of recent interrupts
 unsigned long button_time = 0;
@@ -67,74 +65,78 @@ void loop()
 {
 	mainDisplayRoutine.execute();
 
-	int skipMode = button1.mode;
-
-	switch (obd_state_mode)
+	if (button1.mode == 0)
 	{
-	case 0:
-		if (skipMode != 0)
+		if (!((obd_state == ENG_RPM) || (obd_state == SPEED)))
 		{
+			obd_state = ENG_RPM;
+		}
+		
+		switch (obd_state)
+		{
+		case ENG_RPM:
+			tempRPM = myELM327.rpm();
+			if (myELM327.nb_rx_state == ELM_SUCCESS)
+			{
+				rpm = tempRPM;
+				obd_state = SPEED;
+			}
+			else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+			{
+				myELM327.printError();
+				obd_state = SPEED;
+			}
+			break;
+		case SPEED:
+			tempKPH = myELM327.kph();
+			if (myELM327.nb_rx_state == ELM_SUCCESS)
+			{
+				kph = tempKPH;
+				obd_state = ENG_RPM;
+			}
+			else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+			{
+				myELM327.printError();
+				obd_state = ENG_RPM;
+			}
 			break;
 		}
-		tempKPH = myELM327.kph();
-		if (myELM327.nb_rx_state == ELM_SUCCESS)
-		{
-			kph = (uint32_t)tempKPH;
-		}
-		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
-		{
-			myELM327.printError();
-		}
-		break;
-	case 1:
-		if (skipMode != 0)
-		{
-			break;
-		}
-		tempRPM = myELM327.rpm();
-		if (myELM327.nb_rx_state == ELM_SUCCESS)
-		{
-			rpm = (uint32_t)tempRPM;
-		}
-		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
-		{
-			myELM327.printError();
-		}
-		break;
-	case 2:
-		if (skipMode != 1)
-		{
-			break;
-		}
-		tempOilTemp = myELM327.oilTemp();
-		if (myELM327.nb_rx_state == ELM_SUCCESS)
-		{
-			oilTemp = (uint32_t)tempOilTemp;
-		}
-		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
-		{
-			myELM327.printError();
-		}
-		break;
-	case 3:
-		if (skipMode != 1)
-		{
-			break;
-		}
-		tempFuelRate = myELM327.fuelRate();
-		if (myELM327.nb_rx_state == ELM_SUCCESS)
-		{
-			fuelRate = (uint32_t)tempFuelRate;
-		}
-		else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
-		{
-			myELM327.printError();
-		}
-		break;
 	}
-	obd_state_mode++;
-	if (obd_state_mode > obd_state_max)
+
+	if (button1.mode == 1)
 	{
-		obd_state_mode = 0;
+		if (!((obd_state == TORQUE) || (obd_state == THROTTLE)))
+		{
+			obd_state = TORQUE;
+		}
+		switch (obd_state)
+		{
+		case TORQUE:
+			tempTorque = myELM327.torque();
+			if (myELM327.nb_rx_state == ELM_SUCCESS)
+			{
+				torque = tempTorque;
+				obd_state = THROTTLE;
+			}
+			else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+			{
+				myELM327.printError();
+				obd_state = THROTTLE;
+			}
+			break;
+		case THROTTLE:
+			tempThrottle = myELM327.throttle();
+			if (myELM327.nb_rx_state == ELM_SUCCESS)
+			{
+				throttle = tempThrottle;
+				obd_state = TORQUE;
+			}
+			else if (myELM327.nb_rx_state != ELM_GETTING_MSG)
+			{
+				myELM327.printError();
+				obd_state = TORQUE;
+			}
+			break;
+		}
 	}
 }

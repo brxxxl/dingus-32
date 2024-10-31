@@ -8,7 +8,7 @@
 #include <HardwareSerial.h>
 
 // #define DEBUG_SKIP_CONNECTION
-# define CHAR_PROTOCOL 0
+#define CHAR_PROTOCOL 0
 #define CLEAR_STRING "                "
 
 uint8_t mac[6] = {0x24, 0x44, 0x8B, 0xC0, 0x2A, 0x53};
@@ -19,6 +19,15 @@ struct button
 	bool state;
 	int mode;
 };
+
+typedef enum
+{
+	ENG_RPM,
+	SPEED,
+	TORQUE,
+	THROTTLE
+} obd_pid_states;
+obd_pid_states obd_state = ENG_RPM;
 
 button button1 = {19, false, 0};
 

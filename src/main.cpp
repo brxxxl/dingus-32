@@ -8,8 +8,8 @@
 int modeCount = 1; // Number of modes - 1
 volatile int tempRPM = 0;
 volatile int tempKPH = 0;
-volatile float tempTorque = 0;
-volatile float tempThrottle = 0;
+volatile int tempTorque = 0;
+volatile int tempThrottle = 0;
 
 // variables to keep track of the timing of recent interrupts
 unsigned long button_time = 0;
@@ -109,6 +109,7 @@ void loop()
 		{
 			obd_state = TORQUE;
 		}
+
 		switch (obd_state)
 		{
 		case TORQUE:
